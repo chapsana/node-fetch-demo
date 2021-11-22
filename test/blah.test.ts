@@ -1,4 +1,3 @@
-// import fetch, { Response } from 'node-fetch';
 import { sum, getUser } from '../src';
 
 describe('blah', () => {
@@ -11,9 +10,6 @@ describe('blah', () => {
     expect(sum(1, 1)).toEqual(2);
   });
 });
-
-
-
 
 // jest.mock('node-fetch');
 
