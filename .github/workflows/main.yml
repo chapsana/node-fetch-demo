@@ -27,6 +27,12 @@ jobs:
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
+        
+      - name: Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
 
       - name: Build
         run: yarn build
