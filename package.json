@@ -1,29 +1,27 @@
 {
+  "name": "node-fetch-demo",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Alpha Olomi",
   "main": "dist/index.js",
+  "module": "dist/node-fetch-demo.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=12"
-  },
   "scripts": {
-    "start": "tsdx watch",
+    "analyze": "size-limit --why",
     "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint src test",
-    "prettier": "tsdx lint src test --fix",
-    "prepare": "tsdx build",
+    "lint": "tsdx lint",
+    "prettier": "tsdx lint --fix",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "start": "tsdx watch",
+    "test": "tsdx test"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "yarn prettier"
     }
   },
   "prettier": {
@@ -32,9 +30,22 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "node-fetch-demo",
-  "author": "Alpha Olomi",
-  "module": "dist/node-fetch-demo.esm.js",
+  "dependencies": {
+    "node-fetch": "2"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.3",
+    "@types/node-fetch": "2",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=12"
+  },
   "size-limit": [
     {
       "path": "dist/node-fetch-demo.cjs.production.min.js",
@@ -44,16 +55,5 @@
       "path": "dist/node-fetch-demo.esm.js",
       "limit": "10 KB"
     }
-  ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^7.0.3",
-    "husky": "^7.0.4",
-    "size-limit": "^7.0.3",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "node-fetch": "^3.1.0"
-  }
+  ]
 }
