@@ -1,4 +1,4 @@
-# TS NODE PACKAGE template
+# tsdx with node-fetch
 
 [![CI](https://github.com/chapsana/node-fetch-demo/actions/workflows/main.yml/badge.svg)](https://github.com/chapsana/node-fetch-demo/actions/workflows/main.yml)
 [![codecov](https://codecov.io/gh/chapsana/node-fetch-demo/branch/main/graph/badge.svg?token=0FSgsZLzvx)](https://codecov.io/gh/chapsana/node-fetch-demo)
