@@ -31,7 +31,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
-    "node-fetch": "3"
+    "node-fetch": "2"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.3",
