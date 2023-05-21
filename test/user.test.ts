@@ -1,20 +1,17 @@
-import fetch, { Response } from 'node-fetch';
-import { getUser } from '../src';
-
 jest.mock('node-fetch');
 
-describe('getUser fetch mock test', () => {
-  const mockFetch = fetch as jest.MockedFunction<typeof fetch>;
+import fetch from 'node-fetch';
+import { getUser } from '../src';
 
-  it('check fetch mock test', async () => {
-    const json = jest.fn() as jest.MockedFunction<any>;
+const {Response} = jest.requireActual('node-fetch');
 
-    json.mockResolvedValue({ status: 200 }); // just sample expected json return value
+test('getUser calls fetch ', async () => {
+  // @ts-ignore
+  fetch.mockReturnValue(Promise.resolve(new Response('{ "id": "4" }')));
 
-    mockFetch.mockResolvedValue({ ok: true, json } as Response); // just sample expected fetch response
+  const user = await getUser();
 
-    const result = await getUser();
-
-    expect(json.mock.calls.length).toBe(1);
-  });
+  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(fetch).toHaveBeenCalledWith('https://api.github.com/users/github');
+  expect(user).toEqual({ id: '4' });
 });
